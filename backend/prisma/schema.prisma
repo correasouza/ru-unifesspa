@@ -17,6 +17,8 @@ model Usuario {
   id        String   @id @default(auto()) @map("_id") @db.ObjectId
   nome    String
   subsidiario  Boolean
+  fichas        Int      @default(0)
+  ultimaCompra  DateTime?
   created_at DateTime? @default(now())
   updated_at DateTime? @default(now())
 
