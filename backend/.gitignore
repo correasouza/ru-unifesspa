@@ -1,3 +1,6 @@
-node_modules
+# Keep the node_modules folder and compilation archives out of version control
+/node_modules
+/dist
+
 # Keep environment variables out of version control
 .env
