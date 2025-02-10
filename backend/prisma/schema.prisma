@@ -16,6 +16,7 @@ datasource db {
 model Usuario {
   id        String   @id @default(auto()) @map("_id") @db.ObjectId
   nome    String
+  matricula  String @unique
   subsidiario  Boolean
   fichas        Int      @default(0)
   ultimaCompra  DateTime?

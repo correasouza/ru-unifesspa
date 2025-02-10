@@ -1,9 +1,9 @@
 import prismaClient from "../prisma";
 
 class FindUserByNameService {
-  async execute(nome: string) {
+  async execute(matricula: string) {
     const user = await prismaClient.usuario.findFirst({
-      where: { nome: nome },
+      where: { matricula: matricula },
     });
 
     if (!user) {

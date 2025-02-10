@@ -1,14 +1,14 @@
 import prismaClient from "../prisma";
 
-interface PurchaseTokenProps {
-    id: string;
-    quantidade: number;
+export interface PurchaseTokenProps {
+  matricula: string;
+  quantidade: number;
 }
 
 class PurchaseTokenService {
-  async execute({ id, quantidade }: PurchaseTokenProps) {
+  async execute({ matricula, quantidade }: PurchaseTokenProps) {
     const user = await prismaClient.usuario.findUnique({
-      where: { id: id },
+      where: { matricula: matricula },
     });
 
     if (!user) {
@@ -35,7 +35,7 @@ class PurchaseTokenService {
     }
 
     await prismaClient.usuario.update({
-      where: { id: id },
+      where: { matricula: matricula },
       data: {
         fichas: user.fichas + quantidade,
         ultimaCompra: new Date(),
